@@ -19,7 +19,7 @@ import { StatusIndicator } from './StatusIndicator';
 import { calculateGreenPrescriptionMetrics } from '../utils/greenPrescriptionMetrics';
 
 // 「設定專家建議」：與 WaCare 分頁共用 localStorage，以專家帳號為單位。
-// - 優先授權：民眾追蹤專家並關閉打招呼視窗後，是否自動帶出數據授權頁（預設關閉）。
+// - 優先授權：民眾追蹤專家並關閉打招呼視窗後，是否自動帶出數據授權頁（預設開啟）。
 // - 建議健康數據：勾選的項目會出現在民眾端數據授權頁的「專家建議」裡。
 const PRIORITY_AUTH_KEY = 'wacare-casavida-priority-auth-v2';
 const EXPERT_ADVICE_KEY = 'wacare-casavida-expert-advice-v2';
@@ -40,7 +40,7 @@ const readStore = (key: string): Record<string, unknown> => {
   }
 };
 
-const readPriorityAuth = (): boolean => readStore(PRIORITY_AUTH_KEY)[PRIORITY_AUTH_EXPERT_ID] === true;
+const readPriorityAuth = (): boolean => readStore(PRIORITY_AUTH_KEY)[PRIORITY_AUTH_EXPERT_ID] !== false;
 
 const readExpertAdvice = (): string[] => {
   const saved = readStore(EXPERT_ADVICE_KEY)[PRIORITY_AUTH_EXPERT_ID];
@@ -751,7 +751,7 @@ export const CaseOverview: React.FC<CaseOverviewProps> = ({
         </div>
       </div>
 
-      {/* Expert Advice Modal：建議關注者提供健康數據 + 優先授權 */}
+      {/* Expert Advice Modal：建議關注者提供健康數據 + 主動收集健康數據 */}
       {showExpertAdviseModal && (
         <div className="fixed inset-0 z-50 bg-black/50 flex items-center justify-center p-4">
           <div className="bg-white rounded-lg p-4 w-full max-w-xl max-h-[92vh] overflow-y-auto">
@@ -785,13 +785,13 @@ export const CaseOverview: React.FC<CaseOverviewProps> = ({
 
               <div className="mt-6 border-t border-zinc-200 pt-4">
                 <div className="flex items-center justify-between gap-3">
-                  <span className="text-base font-bold text-zinc-900">優先授權</span>
+                  <span className="text-base font-bold text-zinc-900">主動收集健康數據</span>
                   <button
                     id="btn-priority-auth"
                     type="button"
                     role="switch"
                     aria-checked={priorityDraft}
-                    aria-label="優先授權"
+                    aria-label="主動收集健康數據"
                     onClick={() => {
                       setAdviceSaved(false);
                       setPriorityDraft((prev) => !prev);
@@ -805,7 +805,7 @@ export const CaseOverview: React.FC<CaseOverviewProps> = ({
                   </button>
                 </div>
                 <p className="mt-1 text-xs text-zinc-500">
-                  開啟後，民眾追蹤此專家並關閉打招呼視窗時，會自動跳出數據授權頁。
+                  開啟後，民眾追蹤此專家並關閉打招呼視窗時，會自動跳出數據授權頁，更主動收集民眾的健康數據。
                 </p>
               </div>
 

@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>追蹤專家後自動顯示數據授權｜整合 Prototype</title>
 <script>
-  // 【Demo 專用】每次打開整合頁面都先把「優先授權」重設為關閉，方便從頭示範（須在兩個分頁載入前執行）。
-  // 正式產品不會重設：設定會依專家帳號保留，未設定的專家預設為關閉。
+  // 【Demo 專用】每次打開整合頁面都先把「主動收集健康數據」重設為預設（開啟），方便從頭示範（須在兩個分頁載入前執行）。
+  // 正式產品不會重設：設定會依專家帳號保留，未設定的專家預設為開啟。
   try { localStorage.removeItem('wacare-casavida-priority-auth-v2'); } catch (e) {}
 </script>
 <style>
@@ -33,7 +33,7 @@
     <h1>追蹤專家後自動顯示數據授權</h1>
     <button class="tab" role="tab" id="tab-casavida" aria-selected="true" aria-controls="panel-casavida">① CasaVida 後台</button>
     <button class="tab" role="tab" id="tab-wacare" aria-selected="false" aria-controls="panel-wacare">② WaCare 手機端</button>
-    <span class="hint">先在 ① 設定「優先授權」，再到 ② 追蹤 示範診所 驗證（Bliss 不受影響）</span>
+    <span class="hint">先在 ① 設定「主動收集健康數據」，再到 ② 追蹤 示範診所 驗證（Bliss 不受影響）</span>
   </div>
   <div class="panels">
     <div class="panel is-active" id="panel-casavida" role="tabpanel"><iframe src="./casavida/" title="CasaVida 後台"></iframe></div>

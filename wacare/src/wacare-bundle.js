@@ -448,7 +448,7 @@ Error generating stack: `+s.message+`
 },ClinicExpert=({id:id,onBack:ob,followed:fw,authorized:au,onFollow:ofl,onAuthorizeSuccess:oas,onUnfollow:ouf,onNavigate:nav})=>{
   const cfg={aimee:{name:"示範診所",tag:"醫療院所",followers:"128 位追蹤者",logo:ji},bliss:{name:"Bliss(比莉) 血壓衛教助理",tag:"健康服務",followers:"4,363 位追蹤者",logo:yi}}[id];
   const[gr,setGr]=p.useState(!1),[authOpen,setAuthOpen]=p.useState(!1),[more,setMore]=p.useState(!1),[unf,setUnf]=p.useState(!1);
-  const priority=()=>{try{return JSON.parse(localStorage.getItem("wacare-casavida-priority-auth-v2")||"{}")[id]===!0}catch(e){return!1}};
+  const priority=()=>{try{return JSON.parse(localStorage.getItem("wacare-casavida-priority-auth-v2")||"{}")[id]!==!1}catch(e){return!0}};
   const closeGreet=()=>{setGr(!1);if(priority()&&!au&&wcAdvice(id).sug.length>0)setAuthOpen(!0)};
   const hello=()=>{setGr(!1);window.__kmshChatOrigin="expert";window.__wcOpenChat=id;window.__wcAutoAuth=priority()&&!au&&wcAdvice(id).sug.length>0?id:null;nav("MESSAGES")};
   const toChat=()=>{window.__kmshChatOrigin="expert";window.__wcOpenChat=id;window.__wcAutoAuth=null;nav("MESSAGES")};
