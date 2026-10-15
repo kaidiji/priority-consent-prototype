@@ -1,0 +1,22 @@
+# 依賴與暫存
+node_modules
+node_modules.wacare-broken
+.DS_Store
+
+# 中途示意稿（非交付內容）
+ui-preview.html
+
+# 舊版建置檔（目前只使用 wacare-CDTBxY8N.js）
+site/assets/wacare-BEw9TMR9.js
+site/assets/wacare-BNhkKHM8.js
+site/assets/wacare-C-1iekrP.js
+site/assets/wacare-C7qZnNbc.js
+site/assets/wacare-CXCkfbyE.js
+site/assets/wacare-CbXBYAF5.js
+site/assets/wacare-CyP6qE_d.js
+site/assets/wacare-DhIkSAF3.js
+site/assets/wacare-DmgvL9Yc.js
+site/assets/wacare-KTbGmZ8w.js
+site/assets/wacare-Woa1vBy2.js
+site/assets/wacare-nwcpUpTB.js
+site/assets/wacare-tN9so-Bp.js

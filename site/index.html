@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>追蹤專家後自動顯示數據授權｜整合 Prototype</title>
+<script>
+  // 【Demo 專用】每次打開整合頁面都先把「優先授權」重設為關閉，方便從頭示範（須在兩個分頁載入前執行）。
+  // 正式產品不會重設：設定會依專家帳號保留，未設定的專家預設為關閉。
+  try { localStorage.removeItem('wacare-casavida-priority-auth-v2'); } catch (e) {}
+</script>
+<style>
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body { display: flex; flex-direction: column; background: #efefef; color: #303651; font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; }
+  .tabs { display: flex; gap: 8px; align-items: center; padding: 10px 16px; background: #fff; border-bottom: 1px solid #e6e8f0; }
+  .tabs h1 { margin: 0 12px 0 0; font-size: 14px; font-weight: 700; }
+  .tab { border: 1px solid #d4d4d8; background: #fff; color: #52525b; border-radius: 999px; padding: 6px 16px; font-size: 13px; font-weight: 700; cursor: pointer; }
+  .tab[aria-selected="true"] { background: #f08327; border-color: #f08327; color: #fff; }
+  .tab:focus-visible { outline: 2px solid #303651; outline-offset: 2px; }
+  .hint { margin-left: auto; font-size: 12px; color: #71717a; }
+  .panels { flex: 1; min-height: 0; position: relative; }
+  .panel { position: absolute; inset: 0; display: none; }
+  .panel.is-active { display: block; }
+  iframe { width: 100%; height: 100%; border: 0; background: #efefef; }
+  .phone { justify-content: center; align-items: center; background: #d4d4d8; }
+  .phone.is-active { display: flex; }
+  .phone iframe { width: 390px; max-width: 100%; height: min(844px, 100%); background: #fff; border-radius: 24px; box-shadow: 0 8px 30px rgba(0,0,0,.2); }
+</style>
+</head>
+<body>
+  <div class="tabs" role="tablist">
+    <h1>追蹤專家後自動顯示數據授權</h1>
+    <button class="tab" role="tab" id="tab-casavida" aria-selected="true" aria-controls="panel-casavida">① CasaVida 後台</button>
+    <button class="tab" role="tab" id="tab-wacare" aria-selected="false" aria-controls="panel-wacare">② WaCare 手機端</button>
+    <span class="hint">先在 ① 設定「優先授權」，再到 ② 追蹤 示範診所 驗證（Bliss 不受影響）</span>
+  </div>
+  <div class="panels">
+    <div class="panel is-active" id="panel-casavida" role="tabpanel"><iframe src="./casavida/" title="CasaVida 後台"></iframe></div>
+    <div class="panel phone" id="panel-wacare" role="tabpanel"><iframe src="./wacare.html" title="WaCare 手機端"></iframe></div>
+  </div>
+<script>
+  var tabs = document.querySelectorAll('.tab');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      tabs.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute('aria-selected', String(on));
+        document.getElementById(t.getAttribute('aria-controls')).classList.toggle('is-active', on);
+      });
+    });
+  });
+</script>
+</body>
+</html>

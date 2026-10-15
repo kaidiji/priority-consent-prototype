@@ -1,0 +1,6 @@
+{
+  "name": "WaCare 職能治療知識管理與臨床復能平台",
+  "description": "專為職能治療師、長照復能團隊打造的數位知識管理平台，整合四大臨床領域指引、標準化評估量表、活動設計與分級庫、SMART/GAS個案計畫及AI臨床復能小幫手。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

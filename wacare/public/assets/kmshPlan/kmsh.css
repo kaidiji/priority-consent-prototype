@@ -1,0 +1,1853 @@
+
+        p {
+            font-size: 18px;
+        }
+
+        .kmsh-page {
+            width: 100%;
+            min-width: 320px;
+            margin: 0 auto;
+            background: #eaeaea;
+            font-family: 'Noto Sans TC', Arial, sans-serif;
+            color: #111;
+        }
+
+         .kmsh-loading-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: rgba(255, 255, 255, 0.92);
+        }
+
+        .kmsh-container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .kmsh-content-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            box-sizing: border-box;
+        }
+
+        /* =========================
+        Modal design
+        ========================= */
+
+        .black-dashed-line {
+          width: 100%;
+          border-top: 2px dashed #000;
+          margin: 16px 0;
+        }
+
+        .consent-modal-overlay {
+          position: fixed;
+          inset: 0;
+          z-index: 2000;
+
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          padding: 24px;
+          box-sizing: border-box;
+
+          background: rgba(0, 0, 0, 0.55);
+        }
+
+        .consent-modal {
+          width: 100%;
+          max-width: 770px;
+          max-height: 88vh;
+
+          background: #ffffff;
+          border-radius: 6px;
+
+          overflow: hidden;
+        }
+
+        .consent-modal-body {
+          padding: 28px 32px 26px;
+          box-sizing: border-box;
+        }
+
+        .consent-modal-title {
+          margin: 0 0 20px;
+
+          color: #000;
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 1.35;
+          letter-spacing: 0.02em;
+        }
+
+        .consent-scroll-content {
+          height: 300px;
+          overflow-y: auto;
+
+          padding-right: 12px;
+          box-sizing: border-box;
+
+          color: #000;
+        }
+
+        .consent-scroll-content p {
+          margin: 0 0 10px;
+
+          color: #000;
+          font-size: 17px;
+          line-height: 1.45;
+          letter-spacing: 0.02em;
+          text-align: left;
+        }
+
+        .consent-scroll-content::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        .consent-scroll-content::-webkit-scrollbar-track {
+          background: #eeeeee;
+          border-radius: 999px;
+        }
+
+        .consent-scroll-content::-webkit-scrollbar-thumb {
+          background: #b8b8b8;
+          border-radius: 999px;
+        }
+
+        .consent-checks {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          margin-top: 18px;
+        }
+
+        .consent-check-item {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+
+          color: #000;
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1.4;
+
+          cursor: pointer;
+        }
+
+        .consent-check-item input {
+          width: 20px;
+          height: 20px;
+          margin: 0;
+
+          accent-color: #d84a2b;
+          cursor: pointer;
+        }
+
+        .consent-actions {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          margin-top: 24px;
+        }
+
+        .consent-agree-btn {
+          width: 100%;
+          height: 48px;
+
+          border: none;
+          border-radius: 8px;
+
+          background: #d84a2b;
+          color: #ffffff;
+
+          font-size: 22px;
+          font-weight: 700;
+
+          cursor: pointer;
+
+          box-shadow: 6px 6px 0 #161273;
+
+          transition:
+            opacity 0.18s ease,
+            transform 0.18s ease,
+            box-shadow 0.18s ease;
+        }
+
+        .consent-agree-btn:disabled {
+          background: #bdbdbd;
+          color: #ffffff;
+          box-shadow: none;
+          cursor: not-allowed;
+          opacity: 1;
+        }
+
+        .consent-back-btn {
+          margin-top: 22px;
+
+          border: none;
+          background: transparent;
+
+          color: #d84a2b;
+
+          font-size: 22px;
+          font-weight: 700;
+
+          cursor: pointer;
+        }
+
+        .consent-back-btn:hover {
+          text-decoration: underline;
+        }
+
+        /* header */
+        .kmsh-header {
+            height: 120px;
+            background: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .kmsh-logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .kmsh-nav {
+            display: flex;
+            align-items: center;
+            gap: 38px;
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .kmsh-nav button {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-weight: 700;
+
+            transition:
+              transform 0.18s ease,
+              opacity 0.18s ease;
+            transform-origin: center;
+        }
+        
+        .kmsh-nav button:hover {
+          transform: scale(0.96);
+        }
+
+        .kmsh-nav button:active {
+          transform: scale(0.92);
+        }
+
+        /* nav 裡面的「我要參加」 */
+        .kmsh-nav .join-small {
+            color: #fff;
+            background: #CA4B2C;
+            border-radius: 4px;
+            padding: 10px 12px;
+            box-shadow: 4px 4px 0 #161273;
+        }
+
+        .kmsh-mobile-menu {
+            display: none;
+            width: 48px;
+        }
+
+        .kmsh-mobile-menu-button {
+          display: none;
+          border: none;
+          background: transparent;
+          padding: 0;
+          cursor: pointer;
+        }
+
+        .kmsh-mobile-dropdown {
+          display: none;
+        }
+
+        /* hero */
+        .hero img {
+            width: 100%;
+            display: block;
+        }
+
+        /* section */
+        .section {
+          position: relative;
+          padding: 120px 0;
+        }
+
+        .section-title {
+          position: absolute;
+          top: 0;
+          left: 50%;
+          z-index: 20;
+
+          transform: translate(-50%, 35%) translateY(60px);
+          opacity: 0;
+          
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 0;
+
+          transition:
+            opacity 1.2s ease,
+            transform 1.2s ease;
+        }
+
+        .section-title.is-visible {
+          opacity: 1;
+          transform: translate(-50%, 35%) translateY(0);
+        }
+
+        .section-title-box {
+          background: #000;
+          color: #fff;
+          font-size: 48px;
+          font-weight: 700;
+          padding: 20px 32px;
+          border-radius: 4px;
+          position: relative;
+          z-index: 21;
+        }
+
+        .section-title-arrow {
+          margin-top: 10px;
+          width: 0;
+          height: 0;
+          border-left: 20px solid transparent;
+          border-right: 20px solid transparent;
+          border-top: 30px solid #000;
+        }
+
+        .faq-section {
+          padding-top: 160px;
+        }
+
+        /* 常見問題的桌機版位置比較特殊，所以要單獨補動畫起點與終點 */
+        .faq-section-title {
+          transform: translate(-50%, -50%) translateY(60px);
+        }
+
+        .faq-section-title.is-visible {
+          opacity: 1;
+          transform: translate(-50%, -50%) translateY(0);
+        }
+
+        .h3-title-text {
+            font-size: 32px;
+            font-weight: 600;
+            line-height: 1.2;
+            margin: 0;
+        }
+
+        .intro-text {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .intro-content {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .intro-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .intro-actions button {
+            font-size: 32px;
+            font-weight: 700;
+            padding: 20px;
+            border-radius: 12px;
+            gap: 32px;
+            box-shadow: 6px 8px 0 #161273;
+        }
+
+        /* card */
+        .white-card {
+            background: #fff;
+            padding: 140px 100px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .intro-card {
+            display: flex;
+            justify-content: space-between;
+            gap: 28px;
+        }
+
+        .intro-img {
+            width: 500px;
+        }
+
+        /* buttons */
+        .red-btn {
+            background: #CA4B2C;
+            color: #fff;
+            border: none;
+
+            font-size: 32px;
+            font-weight: 700;
+
+            padding: 20px;
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 6px 8px 0 #161273;
+        }
+
+        .blue-btn {
+            background: #494BEB;
+            color: #fff;
+            border: none;
+
+            font-size: 32px;
+            font-weight: 700;
+
+            padding: 20px;
+            border-radius: 12px;
+
+            cursor: pointer;
+
+            box-shadow: 6px 8px 0 #161273;
+        }
+
+        /* 其他主要按鈕也一起支援：我要參加 / 查看得獎名單 */
+        .red-btn,
+        .blue-btn,
+        .join-small {
+          transition:
+            transform 0.18s ease,
+            box-shadow 0.18s ease,
+            opacity 0.18s ease;
+          transform-origin: center;
+        }
+
+        .red-btn:hover,
+        .blue-btn:hover,
+        .join-small:hover {
+          transform: scale(0.96);
+        }
+
+        .red-btn:active,
+        .blue-btn:active,
+        .join-small:active {
+          transform: scale(0.92);
+        }
+
+        /* floating buttons */
+        .floating-buttons {
+          position: fixed;
+          right: 32px;
+          bottom: 32px;
+          z-index: 999;
+
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .floating-button {
+          width: 140px;
+          height: 140px;
+          padding: 0;
+
+          border: 10px solid #CA4B2C;
+          border-radius: 50%;
+          background: #fff;
+
+          box-shadow: 4px 4px 0 #494BEB;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          cursor: pointer;
+
+          transition:
+            transform 0.18s ease,
+            box-shadow 0.18s ease;
+        }
+
+        .floating-button-icon {
+          width: 64px;
+          height: 64px;
+          object-fit: contain;
+          display: block;
+
+          transition: transform 0.18s ease;
+        }
+
+        .floating-button-text {
+          margin: 4px 0 0;
+          color: #494BEB;
+          font-size: 22px;
+          font-weight: 700;
+          line-height: 1.1;
+        }
+
+        /* hover：整顆縮小 */
+        .floating-button:hover {
+          transform: scale(0.94);
+        }
+
+        /* pressed：再縮小一點 */
+        .floating-button:active,
+        .floating-button.is-pressed {
+          transform: scale(0.9);
+          box-shadow: 3px 4px 0 #494BEB;
+        }
+
+        /* hover / pressed 時，icon 左右轉一次後回正 */
+        .floating-button:hover .floating-button-icon,
+        .floating-button.is-pressed .floating-button-icon {
+          animation: floatingIconRotateOnce 0.35s ease-in-out 1 both;
+        }
+
+        .floating-button:active .floating-button-icon,
+        .floating-button.is-pressed .floating-button-icon {
+          animation: floatingIconRotateOnce 0.35s ease-in-out 1 both;
+        }
+        
+        @keyframes floatingIconRotateOnce {
+          0% {
+            transform: rotate(0deg);
+          }
+
+          35% {
+            transform: rotate(-5deg);
+          }
+
+          70% {
+            transform: rotate(5deg);
+          }
+
+          100% {
+            transform: rotate(0deg);
+          }
+        }
+
+        /* notice */
+        .notice-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 20px solid #4d55e8;
+            padding: 120px 80px 80px 80px;
+            background: #fff;
+            border-radius: 12px;
+        }
+        
+        .h4-title-text {
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        /* =========================
+        PROGRESS SECTION
+        ========================= */
+
+        .step-action-panel {
+          display: flex;
+          align-items: center;
+          gap: 28px;
+          margin-top: 4px;
+        }
+
+        .step-action-status {
+          min-width: 120px;
+          color: #EB4949;
+          font-size: 22px;
+          font-weight: 700;
+          text-align: center;
+          white-space: nowrap;
+        }
+
+        .step-action-status.is-done {
+          color: #16a34a;
+        }
+
+        .step-action-btn {
+          width: 220px;
+          min-height: 56px;
+          border: none;
+          border-radius: 8px;
+          background: #CA4B2C;
+          color: #fff;
+          font-size: 22px;
+          font-weight: 700;
+          cursor: pointer;
+          box-shadow: 6px 6px 0 #161273;
+
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 12px;
+        }
+
+        .step-action-btn:hover {
+          transform: scale(0.96);
+        }
+
+        .step-action-btn:active {
+          transform: scale(0.92);
+          box-shadow: 4px 5px 0 #161273;
+        }
+
+        .step-action-btn.is-disabled,
+        .step-action-btn:disabled {
+          background: #bdbdbd;
+          box-shadow: none;
+          cursor: not-allowed;
+          opacity: 1;
+          transform: none;
+        }
+
+        .step-action-btn.is-disabled:hover,
+        .step-action-btn:disabled:hover {
+          transform: none;
+        }
+
+        .step-action-arrow {
+          font-size: 32px;
+          line-height: 1;
+        }
+
+        .progress-section {
+          padding-top: 160px;
+        }
+
+        .progress-card {
+          background: #fff;
+          border-radius: 12px;
+          padding: 120px 110px;
+          box-sizing: border-box;
+        }
+
+        .progress-intro-text {
+          margin: 0 0 36px;
+          font-size: 24px;
+          font-weight: 500;
+          line-height: 1.6;
+        }
+
+        .progress-list {
+          display: flex;
+          flex-direction: column;
+          gap: 28px;
+        }
+
+        .progress-row {
+          display: grid;
+          grid-template-columns: 360px 180px 360px;
+          align-items: center;
+          justify-content: space-between;
+          gap: 48px;
+        }
+
+        .progress-step-title {
+          display: inline-flex;
+          align-items: center;
+          width: 100%;
+          min-height: 100px;
+          color: #494BEB;
+          background: #ffffff;
+          border: 1px solid #494BEB;
+          border-radius: 8px;
+          overflow: hidden;
+          font-size: 32px;
+          font-weight: 700;
+          line-height: 1.2;
+        }
+
+        .progress-step-title.danger {
+          color: #EB4949;
+          border-color: #EB4949;
+        }
+
+        .progress-step-title.danger .progress-step-number {
+          background: #EB4949;
+        }
+
+        .progress-step-number {
+          flex: 0 0 100px;
+          width: 100px;
+          min-height: 100px;
+          background: #494BEB;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 52px;
+          font-weight: 700;
+        }
+
+        .progress-step-title > span:last-child {
+          flex: 1;
+          padding: 0 20px;
+          text-align: center;
+        }
+
+        .progress-status {
+          color: #EB4949;
+          font-size: 32px;
+          font-weight: 700;
+          text-align: center;
+          white-space: nowrap;
+        }
+
+        .progress-status.is-done {
+          color: #16a34a;
+        }
+
+        .progress-status.placeholder {
+          visibility: hidden;
+        }
+
+        .progress-go-btn {
+          width: 100%;
+          min-height: 86px;
+          border: none;
+          border-radius: 12px;
+          background: #CA4B2C;
+          color: #fff;
+          font-size: 30px;
+          font-weight: 700;
+          cursor: pointer;
+          box-shadow: 8px 9px 0 #161273;
+
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 18px;
+
+          transition:
+            transform 0.18s ease,
+            box-shadow 0.18s ease;
+        }
+
+        .progress-go-btn:hover {
+          transform: scale(0.96);
+        }
+
+        .progress-go-btn:active {
+          transform: scale(0.92);
+          box-shadow: 4px 5px 0 #161273;
+        }
+
+        .progress-go-btn.is-disabled,
+        .progress-go-btn:disabled {
+          background: #bdbdbd;
+          box-shadow: none;
+          cursor: not-allowed;
+          opacity: 1;
+          transform: none;
+        }
+
+        .progress-go-btn.is-disabled:hover,
+        .progress-go-btn:disabled:hover {
+          transform: none;
+        }
+
+        .progress-go-arrow {
+          font-size: 34px;
+          line-height: 1;
+        }
+
+        .progress-result-card {
+          margin: 28px 0 28px;
+          padding: 24px 28px;
+          border-radius: 8px;
+        }
+
+        .progress-success-card {
+          background: #d9fbd7;
+        }
+
+        .progress-error-card {
+          background: #F7D7D2;
+        }
+
+        .progress-success-card h3,
+        .progress-error-card h3 {
+          margin: 0 0 18px;
+          font-size: 28px;
+          font-weight: 700;
+          line-height: 1.4;
+        }
+
+        .progress-success-card p,
+        .progress-error-card p {
+          margin: 0;
+          font-size: 18px;
+          line-height: 1.6;
+        }
+
+        .progress-row-danger {
+          margin-top: 28px;
+        }
+
+        /* =========================
+        PRIZE
+        ========================= */
+
+        .prize-mobile-title-img,
+        .prize-mobile-heart-img {
+          display: none;
+        }
+
+        .prize-area {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 120px 90px 140px;
+            box-sizing: border-box;
+            transform: translateZ(0);
+        }
+
+        .prize-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .prize-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 64px;
+        }
+
+        /* step 共用 */
+        .step-block {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .step-title {
+          display: inline-flex;
+          align-items: center;
+
+          width: fit-content;
+          max-width: 100%;
+
+          font-size: 36px;
+          font-weight: 700;
+          color: #494BEB;
+          background: #ffffff;
+          border-radius: 12px;
+          border: 1px solid #494BEB;
+
+          overflow: hidden;
+        }
+
+        .step-title > span:last-child {
+          padding: 0 32px;
+          white-space: nowrap;
+        }
+
+        .step-number {
+          flex: 0 0 100px;
+          width: 100px;
+          height: 100px;
+          background: #494BEB;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 8px 0 0 8px;
+        }
+
+        /* step 紅色 */
+        .step-title.red {
+            color: #EB4949;
+            border: 1px solid #EB4949;
+        }
+        .step-title.red .step-number {
+            background: #EB4949;
+        }
+
+        .step-desc {
+            font-weight: 600;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .step-desc.red {
+            color: #EB4949;
+        }
+
+        /* 所有步驟數字共用 */
+        .placeholder-caption span {
+          margin-right: 16px;
+          font-weight: 700;
+          color: #494BEB;
+        }
+
+        /* STEP 5 改紅色 */
+        .step-5 .placeholder-caption span {
+          color: #EB4949;
+        }
+
+        .step-6 .placeholder-caption span {
+          color: #EB4949;
+        }
+
+        /* 🎯 定位（桌機） */
+        .step-1,
+        .step-2,
+        .step-3,
+        .step-4,
+        .step-5,
+        .step-6 {
+          width: 100%;
+        }
+
+        /* grid */
+        .placeholder-row {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 40px;
+        }
+
+        .placeholder-row.two {
+          grid-template-columns: repeat(2, minmax(0, 260px));
+          justify-content: start;
+        }
+
+        .placeholder-item {
+          min-width: 0;
+
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .step-img,
+        .img-placeholder {
+          width: 100%;
+          max-width: 280px;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+          display: block;
+          border-radius: 8px;
+          border: 1px solid #eeeeee;
+          box-sizing: border-box;
+        }
+
+        .placeholder-caption {
+          order: -1;
+
+          font-size: 18px;
+          margin: 0 0 24px;
+          font-weight: 600;
+        }
+
+        /* gift */
+        .gift-card {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            background: #fff;
+            padding: 140px 100px;
+            border-radius: 12px;
+        }
+
+        /* faq */
+        .faq-list {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+        }
+
+        .faq-item {
+          position: relative;
+          background: #fff;
+          border: 2px solid #494BEB;
+          border-radius: 8px;
+          padding: 56px 80px 40px;
+          overflow: hidden;
+        }
+
+        .faq-num {
+          position: absolute;
+          top: -1px;
+          left: -1px;
+
+          width: 150px;
+          height: 150px;
+
+          background: #494BEB;
+          color: #fff;
+
+          font-size: 48px;
+          font-weight: 700;
+          line-height: 1;
+
+          padding: 24px 0 0 28px;
+          box-sizing: border-box;
+
+          clip-path: polygon(0 0, 100% 0, 0 100%);
+        }
+
+        .faq-content {
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+        }
+
+        .faq-question-row {
+          display: flex;
+          align-items: center;
+          gap: 28px;
+          padding-left: 110px;
+        }
+
+        .faq-q {
+          color: #494BEB;
+          font-size: 64px;
+          font-weight: 700;
+          line-height: 1;
+          padding-right: 28px;
+          border-right: 1px solid #ddd;
+        }
+
+        .faq-question-row h3 {
+          margin: 0;
+          font-size: 24px;
+          font-weight: 700;
+        }
+
+        .faq-answer {
+          background: #EFEFEF;
+          border-radius: 8px;
+          padding: 20px;
+          font-size: 18px;
+        }
+
+        .faq-answer p {
+          margin: 0;
+        }
+
+        .faq-answer p + p {
+          margin-top: 20px;
+        }
+
+        .cta-section {
+            position: relative;
+            text-align: center;
+            padding: 180px;
+            overflow: hidden;
+
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+        }
+
+            .cta-section::before {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: url('/static/kmshPlan/cta-bg.svg') no-repeat center;
+                background-size: cover;
+                z-index: 0;
+            }
+
+            .cta-section * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-bling-layer {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .cta-bling {
+          position: absolute;
+          display: block;
+          width: 24px;
+          height: auto;
+          opacity: 0.85;
+          transform-origin: center;
+          animation: ctaBling 1.8s ease-in-out infinite;
+        }
+
+        /* 左上橘色星 */
+        .cta-bling-1 {
+          top: 12%;
+          left: 21%;
+          width: 30px;
+          animation-delay: 0s;
+        }
+
+        /* 左側藍色小星 */
+        .cta-bling-2 {
+          top: 30%;
+          left: 24%;
+          width: 20px;
+          animation-delay: 0.4s;
+        }
+
+        /* 左側淺藍十字 */
+        .cta-bling-3 {
+          top: 48%;
+          left: 20%;
+          width: 40px;
+          animation-delay: 0.8s;
+        }
+
+        /* 左下橘色星 */
+        .cta-bling-4 {
+          top: 72%;
+          left: 18%;
+          width: 30px;
+          animation-delay: 0s;
+        }
+
+        /* 右上橘色星 */
+        .cta-bling-5 {
+          top: 18%;
+          right: 18%;
+          width: 30px;
+          animation-delay: 0.2s;
+        }
+
+        /* 右側藍色小星 */
+        .cta-bling-6 {
+          top: 60%;
+          right: 16%;
+          width: 20px;
+          animation-delay: 0.65s;
+        }
+
+        /* 右側淺藍十字 */
+        .cta-bling-7 {
+          top: 43%;
+          right: 20%;
+          width: 40px;
+          animation-delay: 0.65s;
+        }
+
+        /* 右下橘色星 */
+        .cta-bling-8 {
+          top: 78%;
+          right: 20%;
+          width: 30px;
+          animation-delay: 0.2s;
+        }
+
+        @keyframes ctaBling {
+          0% {
+            opacity: 0.45;
+            transform: scale(0.75) rotate(0deg);
+            filter: brightness(1);
+          }
+
+          45% {
+            opacity: 1;
+            transform: scale(1.25) rotate(8deg);
+            filter: brightness(1.5);
+          }
+
+          100% {
+            opacity: 0.45;
+            transform: scale(0.75) rotate(0deg);
+            filter: brightness(1);
+          }
+        }
+
+        .cta-content {
+          display: flex;
+          flex-direction: column;
+          align-items: center; 
+          gap: 32px;
+        }
+
+        .cta-deco {
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 2;
+
+          pointer-events: none; /* 不影響點擊 */
+
+          width: 100%; 
+          max-width: 600px; 
+        }
+
+        .cta-small-text {
+          font-size: 32px;
+          font-weight: 400;
+        }
+
+        .cta-main-text {
+          font-size: 48px;
+          font-weight: 700;
+        }
+
+        /* 上面那條 */
+        .cta-deco.top {
+          top: 80px;
+        }
+
+        /* 下面那條 */
+        .cta-deco.bottom {
+          bottom: 80px;
+        }
+
+        /* footer */
+        .host-section {
+          position: relative;
+
+          display: flex;
+          flex-direction: column;
+
+          background: url('/static/kmshPlan/host-bg.png') no-repeat center bottom;
+          background-size: cover;
+
+          padding: 120px 40px 0;
+          box-sizing: border-box;
+        }
+
+        /* 白底內容區限制寬度 */
+        .host-card {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            border-radius: 12px;
+
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 185px;
+            padding: 80px;
+            box-sizing: border-box;
+            margin-bottom: auto;
+        }
+
+        .host-card img {
+            width: auto;
+            height: auto;
+            max-width: 330px;
+            max-height: 330px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .host-card img:nth-child(2) {
+            max-width: 370px;
+            max-height: 76px;
+        }
+
+        .copyright {
+          width: 100%;
+          font-size: 16px;
+          font-weight: 500;
+          padding: 40px 0 30px 0;
+        }
+
+        /* =========================
+        📱 MOBILE
+        ========================= */
+
+        @media (max-width: 768px) {
+
+        .step-action-panel {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 12px;
+          margin-top: 12px;
+        }
+
+        .step-action-status {
+          min-width: auto;
+          font-size: 18px;
+          text-align: center;
+        }
+
+        .step-action-btn {
+          width: 100%;
+          min-height: 48px;
+          border-radius: 6px;
+          font-size: 18px;
+          box-shadow: 5px 6px 0 #161273;
+        }
+
+        .step-action-arrow {
+          font-size: 20px;
+        }
+
+        /* consent modal mobile */
+        .consent-modal-overlay {
+          padding: 16px;
+          align-items: center;
+        }
+
+        .consent-modal {
+          max-width: 100%;
+          max-height: 90vh;
+          border-radius: 6px;
+        }
+
+        .consent-modal-body {
+          padding: 24px 20px 22px;
+        }
+
+        .consent-modal-title {
+          margin-bottom: 16px;
+          font-size: 19px;
+          line-height: 1.4;
+        }
+
+        .consent-scroll-content {
+          height: 38vh;
+          padding-right: 8px;
+        }
+
+        .consent-scroll-content p {
+          font-size: 15px;
+          line-height: 1.5;
+        }
+
+        .consent-checks {
+          gap: 10px;
+          margin-top: 16px;
+        }
+
+        .consent-check-item {
+          align-items: flex-start;
+          gap: 10px;
+
+          font-size: 16px;
+          line-height: 1.45;
+        }
+
+        .consent-check-item input {
+          width: 18px;
+          height: 18px;
+          margin-top: 2px;
+        }
+
+        .consent-actions {
+          margin-top: 20px;
+        }
+
+        .consent-agree-btn {
+          height: 46px;
+          font-size: 20px;
+          border-radius: 8px;
+          box-shadow: 4px 4px 0 #161273;
+        }
+
+        .consent-back-btn {
+          margin-top: 18px;
+          font-size: 20px;
+        }
+
+        .kmsh-content-container {
+            max-width: 430px;
+            padding: 0 12px;
+        }
+
+        .kmsh-header {
+            height: 48px;
+            padding: 30px 40px;
+        }
+
+        .kmsh-nav {
+            display: none;
+        }
+
+        .kmsh-mobile-menu {
+            display: block;
+        }
+
+        .kmsh-mobile-menu-button {
+          display: block;
+        }
+
+        .kmsh-mobile-menu {
+          display: block;
+        }
+
+        .kmsh-mobile-dropdown {
+          position: absolute;
+          top: 60px;
+          left: 0;
+          right: 0;
+          z-index: 100;
+          display: flex;
+          flex-direction: column;
+          background: #fff;
+          border-top: 1px solid #eee;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .kmsh-mobile-dropdown button {
+          width: 100%;
+          padding: 18px 24px;
+          border: none;
+          border-bottom: 1px solid #eee;
+          background: #fff;
+          font-size: 18px;
+          font-weight: 700;
+          text-align: left;
+          cursor: pointer;
+
+          transition:
+            transform 0.18s ease,
+            opacity 0.18s ease;
+            transform-origin: center;
+        }
+
+        .kmsh-mobile-dropdown button:hover {
+          transform: scale(0.98);
+        }
+
+        .kmsh-mobile-dropdown button:active {
+          transform: scale(0.95);
+        }
+
+        .kmsh-mobile-dropdown .join-mobile {
+          color: #fff;
+          background: #CA4B2C;
+        }
+
+        .section-title {
+          position: relative;
+          top: 0;
+          left: 50%;
+          z-index: 20;
+
+          transform: translate(-50%, -30%) translateY(40px);
+          opacity: 0;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-bottom: 0;
+
+          transition:
+            opacity 1.2s ease,
+            transform 1.2s ease;
+        }
+
+        .section-title.is-visible {
+          opacity: 1;
+          transform: translate(-50%, -30%) translateY(0);
+        }
+
+        .intro-card {
+            flex-direction: column;
+        }
+
+        .white-card {
+            padding: 20px;
+        }
+
+        .notice-card {
+          padding: 24px;
+        }
+
+        .progress-section {
+          padding-top: 80px;
+        }
+
+        .progress-card {
+          padding: 64px 14px 28px;
+          border-radius: 8px;
+        }
+
+        .progress-intro-text {
+          margin-bottom: 24px;
+          font-size: 18px;
+          line-height: 1.5;
+        }
+
+        .progress-list {
+          gap: 18px;
+        }
+
+        .progress-row {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+          gap: 12px;
+          padding-bottom: 18px;
+        }
+
+        .progress-step-title {
+          min-height: 74px;
+          font-size: 24px;
+        }
+
+        .progress-step-number {
+          flex: 0 0 74px;
+          width: 74px;
+          min-height: 74px;
+          font-size: 42px;
+        }
+
+        .progress-step-title > span:last-child {
+          padding: 0 16px;
+        }
+
+        .progress-status {
+          font-size: 24px;
+          text-align: center;
+        }
+
+        .progress-status.placeholder {
+          display: none;
+        }
+
+        .progress-go-btn {
+          min-height: 64px;
+          font-size: 24px;
+          border-radius: 8px;
+          box-shadow: 5px 6px 0 #161273;
+        }
+
+        .progress-go-arrow {
+          font-size: 28px;
+        }
+
+        .progress-result-card {
+          margin: 18px 0 22px;
+          padding: 18px;
+        }
+
+        .progress-success-card h3,
+        .progress-error-card h3 {
+          margin-bottom: 12px;
+          font-size: 22px;
+        }
+
+        .progress-success-card p,
+        .progress-error-card p {
+          font-size: 16px;
+        }
+
+        .progress-row-danger {
+          margin-top: 12px;
+        }
+
+        .gift-card {
+            padding: 20px 40px;
+        }
+
+        .section {
+          padding: 80px 0 0;
+        }
+
+        .section-title-box {
+          font-size: 32px;
+          padding: 14px 24px;
+        }
+
+        .section-title-arrow {
+          border-left-width: 14px;
+          border-right-width: 14px;
+          border-top-width: 22px;
+        }
+
+        .step-title {
+          width: 100%;
+          font-size: 24px;
+        }
+
+        .step-number {
+          flex: 0 0 64px;
+          width: 64px;
+          height: 64px;
+        }
+
+        .step-title > span:last-child {
+          padding: 0 20px;
+          white-space: normal;
+        }
+        
+        .step-desc {
+            font-size: 24px;
+        }
+
+        /* 關鍵：手機取消定位 */
+        .prize-content {
+            position: static;
+            padding: 20px 0;
+        }
+
+        .step-block {
+            position: static;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .placeholder-row,
+        .placeholder-row.two {
+            grid-template-columns: 1fr;
+            gap: 16px;
+            justify-items: center;
+        }
+
+        .placeholder-item {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .step-img,
+        .img-placeholder {
+           margin: 0 auto;
+        }
+        
+        .placeholder-caption {
+          width: 100%;
+          max-width: 280px;
+        }
+
+        .gift-card {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .host-card {
+            flex-direction: column;
+            gap: 24px;
+        }
+        
+        /* 手機版隱藏右下角浮動按鈕 */
+        .floating-buttons {
+          display: none;
+        }
+
+        /* 手機版隱藏電腦版 prize 背景圖 */
+        .prize-bg {
+          display: none;
+        }
+
+        /* 手機版顯示兩張手機專用圖片 */
+        .prize-mobile-title-img,
+        .prize-mobile-heart-img {
+          display: block;
+          width: 260px;
+          margin: 0 auto;
+        }
+
+        /* 手機版 prize 區塊改成一般排版 */
+        .prize-area {
+          overflow: visible;
+          background: #ffffff;
+          border-radius: 8px;
+          padding: 56px 12px 24px;
+          box-sizing: border-box;
+        }
+
+        /* faq */
+        .faq-list {
+          gap: 20px;
+        }
+
+        .faq-item {
+          padding: 40px 20px;
+        }
+
+        .faq-num {
+          width: 80px;
+          height: 80px;
+          font-size: 24px;
+          padding: 12px 20px 0 20px;
+        }
+
+        .faq-content {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .faq-question-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          padding-left: 10px;
+        }
+
+        .faq-q {
+          font-size: 44px;
+          padding-right: 10px;
+        }
+
+        .faq-question-row h3 {
+          font-size: 20px;
+        }
+
+        .faq-answer {
+          background: #EFEFEF;
+          border-radius: 8px;
+          padding: 20px;
+          font-size: 18px;
+        }
+
+        .faq-answer p {
+          margin: 0;
+        }
+
+        .faq-answer p + p {
+          margin-top: 20px;
+        }
+
+        .cta-section {
+          padding: 40px 4px;
+        }
+
+        .cta-content {
+          padding: 40px;
+        }
+
+        .cta-deco {
+          width: 80%; 
+        }
+
+        .cta-bling {
+          opacity: 0.9;
+        }
+
+        /* 左上橘色星 */
+        .cta-bling-1 {
+          top: 12%;
+          left: 22%;
+          width: 20px;
+        }
+
+        /* 左側藍色小星 */
+        .cta-bling-2 {
+          top: 25%;
+          left: 10%;
+          width: 14px;
+        }
+
+        /* 左側淺藍十字 */
+        .cta-bling-3 {
+          top: 55%;
+          left: 15%;
+          width: 28px;
+        }
+
+        /* 左下橘色星 */
+        .cta-bling-4 {
+          top: 78%;
+          left: 16%;
+          width: 20px;
+        }
+
+        /* 右上橘色星 */
+        .cta-bling-5 {
+          display: none;
+        }
+
+        /* 右側藍色小星 */
+        .cta-bling-6 {
+          top: 74%;
+          right: 10%;
+          width: 14px;
+        }
+
+        /* 右側淺藍十字 */
+        .cta-bling-7 {
+          top: 18%;
+          right: 8%;
+          width: 28px;
+        }
+
+        /* 右下橘色星 */
+        .cta-bling-8 {
+          top: 56%;
+          right: 16%;
+          width: 20px;
+        }
+
+        .cta-small-text {
+          font-size: 24px;
+        }
+
+        .cta-main-text {
+          font-size: 32px;
+        }
+
+        /* 上面那條 */
+        .cta-deco.top {
+          top: 20px;
+        }
+
+        /* 下面那條 */
+        .cta-deco.bottom {
+          bottom: 20px;
+        }
+
+        /* buttons */
+        .red-btn {
+            font-size: 24px;
+            padding: 10px 20px;
+        }
+
+        .blue-btn {
+            font-size: 24px;
+            padding: 10px 20px;
+        }
+
+        .host-card img {
+            max-width: 130px;
+            max-height: 130px;
+        }
+
+        .host-card img:nth-child(2) {
+            max-width: 210px;
+            max-height: 43px;
+        }
+        }
+        
